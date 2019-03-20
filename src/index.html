@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="../node_modules/vue/dist/vue.js"></script>
+		<script src="../dist/vue-toast-demo.js"></script>
+		<style type="text/css">
+			body,div,section,p{
+				margin: 0;
+			    padding: 0;
+			    border: 0;
+			    font-size: 100%;
+			    font: inherit;
+			    vertical-align: baseline;
+			}
+			.main{
+				text-align: center;
+			}
+			.main a{
+				text-decoration: none;
+			}
+		</style>
+	<body>
+		<div id="app" class="main">
+			<h2>vue-toast for mibile</h2>
+			<div class="form-group row">
+				<a class="btn btn-primary" href="javascript:;" @click="toast">默认toast</a>
+			</div>
+			<div class="form-group row">
+				<a class="btn btn-info" href="javascript:;" @click="toast2">5秒后关闭toast</a>
+			</div>
+			<div class="form-group row">
+				<a class="btn btn-success" href="javascript:;" @click="toast3">关闭toast后，执行回调</a>
+			</div>
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el:'#app',
+			methods:{
+				toast:function(){
+					this.$toast.show("ni hao Toast")
+				},
+				toast2:function(){
+					this.$toast.show("hello",{duration:1000})
+				},
+				toast3:function(){
+					this.$toast.show("当前点击了标签",function(){
+						alert("这里是回掉函数")
+					});
+				}
+			}
+		})
+	</script>
+</html>
